@@ -1,9 +1,11 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
 import express from 'express';
+import cors from 'cors';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
+import axios from 'axios';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -17,6 +19,8 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
+  server.use(cors());
+
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -24,6 +28,19 @@ export function app(): express.Express {
     maxAge: '1y',
     index: 'index.html',
   }));
+
+  server.get("/hola", (req, res) => {
+    try{ 
+      axios.get('http://172.31.79.224:5000/api').then((response) => { //ip de la api en la instancia del back
+        res.json(response.data);
+      }
+      )
+    } catch (error) {
+      console.error(error);
+    }
+  });
+
+
 
   // All regular routes use the Angular engine
   server.get('**', (req, res, next) => {
