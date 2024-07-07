@@ -31,6 +31,7 @@ export function app(): express.Express {
 
   server.get("/hola", (req, res) => {
     try{ 
+      //intalar axios
       axios.get('http://172.31.79.224:5000/api').then((response) => { //ip de la api en la instancia del back
         res.json(response.data);
       }
