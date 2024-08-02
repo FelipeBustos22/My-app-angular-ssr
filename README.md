@@ -1,27 +1,40 @@
 # MyApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+# Proyecto de Aplicación con SSR en Angular
 
-## Development server
+Este proyecto es una aplicación con Server-Side Rendering (SSR) desarrollada con Angular y desplegada en un servidor EC2 en AWS usando Amazon Linux y Apache.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Descripción
 
-## Code scaffolding
+La aplicación se comunica con un backend ubicado en otra instancia EC2 a través de una red privada. El backend es una API desarrollada con Flask que se conecta a una base de datos MySQL alojada en
+Amazon RDS.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Arquitectura del Proyecto
 
-## Build
+1. **Frontend**: 
+   - Desarrollado con Angular y habilitado para SSR.
+   - Desplegado en una instancia EC2 con Amazon Linux y servidor Apache.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Backend**:
+   - API desarrollada con Flask.
+   - Alojada en una instancia EC2 diferente, comunicándose con el frontend mediante una red privada.
 
-## Running unit tests
+3. **Base de Datos**:
+   - Base de datos MySQL alojada en Amazon RDS.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Funcionamiento
 
-## Running end-to-end tests
+1. La aplicación Angular envía solicitudes a la API de Flask.
+2. La API de Flask se comunica con la base de datos MySQL para recuperar y enviar los datos solicitados.
+3. El servidor Angular renderiza los datos y los muestra en el frontend.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Instalación y Despliegue
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Frontend**:
+   - Desplegar en modo produccion la aplicación Angular con SSR en una instancia EC2.
+   - Configurar Apache para servir la aplicación Angular.
+
+2. **Backend**:
+   - Desplegar la API Flask en una instancia EC2 diferente.
+   - Configurar la API para que se comunique con la base de datos MySQL en RDS.
