@@ -38,3 +38,10 @@ Amazon RDS.
 2. **Backend**:
    - Desplegar la API Flask en una instancia EC2 diferente.
    - Configurar la API para que se comunique con la base de datos MySQL en RDS.
+   - 
+## Clonación del Repositorio
+
+Para clonar este repositorio, utiliza el siguiente comando:
+
+```bash
+git clone https://github.com/FelipeBustos22/rest-API-midu.git
