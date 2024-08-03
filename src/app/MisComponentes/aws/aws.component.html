@@ -1,0 +1,22 @@
+<table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Carrera</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for(item of data; track item.id){
+      <tr>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[2]}}</td>
+        <td>{{item[3]}}</td>
+      </tr>
+        }
+
+    </tbody>
+
+</table>
