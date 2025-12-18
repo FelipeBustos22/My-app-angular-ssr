@@ -8,8 +8,8 @@ CORS(app)
 mysql_config = { 
     'host': '172.31.20.5',
     'user': 'admin',
-    'password': 'felipe12345',
-    'database': 'felipeBD',
+    'password': '*******',
+    'database': '*******',
 }
 
 def conectar_mysql():
